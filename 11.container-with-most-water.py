@@ -44,7 +44,3 @@ class Solution:
             h = min(height[l], height[r])
             res, l, r = max(res,  h * (r - l)), l + (height[l] == h), r - (height[r] == h)
         return res
-
-    def calc(self, height: List[int], l, r) -> int:
-        return abs(l-r) * min(height[l], height[r])
-

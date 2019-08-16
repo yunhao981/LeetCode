@@ -87,5 +87,26 @@
 #
 class Solution:
     def myAtoi(self, str: str) -> int:
+        if len(str) == 0:
+            return 0
+        s = str.strip()
+        if not s:
+            return 0
+
+        if s[0] == '-':
+            sign = -1
+            ns = s[1:]
+        elif s[0] == '+':
+            sign = 1
+            ns = s[1:]
+        else:
+            sign = 1
+            ns = s
         
-        
+        ans = 0
+        i = 0
+        while i < len(ns) and ns[i].isdigit():
+            ans = ans * 10 + ord(ns[i]) - ord('0')
+            i += 1
+        return max(-2**31, min(sign * ans, 2**31-1))
+

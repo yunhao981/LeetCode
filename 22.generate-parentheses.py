@@ -32,6 +32,10 @@
 # 
 #
 class Solution:
-    def generateParenthesis(self, n: int) -> List[str]:
+    def generateParenthesis(self, n: int, open=0) -> List[str]:
+        if n > 0 <= open:
+            return ['(' + p for p in self.generateParenthesis(n-1, open+1)] + \
+                [')' + p for p in self.generateParenthesis(n, open-1)]
+        return [')' * open] * (not n)
         
 

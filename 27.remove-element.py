@@ -68,10 +68,12 @@
 #
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:
-        count = 0
+        idx = 0
         for num in nums:
-            if(val == num):
-                count += 1
-        return len(nums) - count
+            if(num != val):
+                nums[idx] = num
+                idx += 1
+        return idx
+
 
 

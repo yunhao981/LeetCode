@@ -58,20 +58,20 @@
 # @lc code=start
 class Solution:
     def isValid(self, s: str) -> bool:
-       stack = []
-       m = {
-           ")":"(",
-           "]":"[",
-           "}":"{"
-       } 
+        stack = []
+        m = {
+            ")":"(",
+            "]":"[",
+            "}":"{"
+        }
 
-       for ch in s:
-           if ch in m:
-               if not (stack and stack.pop() == m[ch]):
-                   return False
-           else:
-               stack.append(ch)
+        for ch in s:
+            if ch in m:
+                if not (stack and stack.pop() == m[ch]):
+                    return False
+            else:
+                stack.append(ch)
         
-       return not stack
+        return not stack
 # @lc code=end
 
